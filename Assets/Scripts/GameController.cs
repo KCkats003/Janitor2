@@ -6,7 +6,7 @@ public class GameController : MonoBehaviour
 {
     public GameObject diescreen;
     public GameObject winscreen;
-   public PlayerMovement PlayerMovement;
+  // public PlayerMovement PlayerMovement;
     bool died1; 
 
     // Start is called before the first frame update
@@ -14,7 +14,7 @@ public class GameController : MonoBehaviour
     {
         diescreen.SetActive(false);
         winscreen.SetActive(false);
-        PlayerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
+     //   PlayerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
         
 
     }
