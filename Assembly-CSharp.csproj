@@ -57,8 +57,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
-    <Compile Include="Assets\Scripts\Blood.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement2.cs" />
+    <Compile Include="Assets\Scripts\Blood.cs" />
+    <Compile Include="Assets\Scripts\RandomSpawn.cs" />
+    <Compile Include="Assets\Scripts\RandomSpawnRectangle.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

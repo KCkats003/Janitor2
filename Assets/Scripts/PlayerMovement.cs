@@ -11,21 +11,24 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Move");
         Move();
     }
 
     void Move()
     {
-       // Debug.Log("You mopped up the blood");
         float x = Input.GetAxisRaw("Horizontal");
-        float moveBy = x * speed;
-        rb.velocity = new Vector2(moveBy, rb.velocity.y);
+        float y = Input.GetAxisRaw("Vertical");
+        float movexBy = x * speed;
+        float moveyBy = y * speed;
+        rb.velocity = new Vector2(movexBy, moveyBy);
     }
 
     void Jump()
@@ -36,23 +39,25 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    
-    void OnCollisionEnter(Collision collision)
+    /*
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        Debug.Log("You mopped up the blood");
+        if (collision.gameObject.tag == "Blood")
         {
             //  gameObject.active = false;
             collision.gameObject.SetActive(false);
-            Debug.Log("You mopped up the blood :) ");
+            Debug.Log("You mopped up the blood");
         }
     }
 
-    public void OnTriggerEnter(Collider other)
+     void OnTriggerEnter2D(Collision2D collision)
     {
-        if (other.tag == "Blood")
+        Debug.Log("You mopped up the blood");
+        if (collision.gameObject..tag == "Blood")
             // gameObject.active = false;
-            other.gameObject.SetActive(false);
+            collision.gameObject.SetActive(false);
     }
-   
+    */
 
 }

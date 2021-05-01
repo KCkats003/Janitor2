@@ -17,21 +17,32 @@ public class Blood : MonoBehaviour
     }
 
     
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("You mopped up the blood");
+       
         if (collision.gameObject.tag == "Player")
         {
+            gameObject.active = false;
+            gameObject.SetActive(false);
             //  gameObject.active = false;
-            collision.gameObject.SetActive(false);
+            //   collision.gameObject.SetActive(false);
             Debug.Log("You mopped up the blood BLOOD");
         }
     }
 
-    public void OnTriggerEnter(Collider other)
+   void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        Debug.Log("You mopped up the blood");
+       
+        if (other.tag == "Player") {
             // gameObject.active = false;
-            other.gameObject.SetActive(false);
+            //    other.gameObject.SetActive(false);
+            gameObject.active = false;
+            gameObject.SetActive(false);
+
+        }
+            
     }
     
 }
