@@ -8,14 +8,15 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     public float jumpForce;
     public bool died;
-    public int collected; 
-
+    public int collected;
+    Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         collected = 0; 
         died = false; 
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -29,6 +30,27 @@ public class PlayerMovement : MonoBehaviour
     {
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
+
+        if (x == 0)
+        {
+            Debug.Log("Move");
+            animator.SetBool("middleWalk", true);
+            animator.SetBool("leftWalk", false);
+            animator.SetBool("rightWalk", false);
+        }
+        else if (x > 0)
+        {
+            animator.SetBool("rightWalk", true);
+            animator.SetBool("leftWalk", false);
+            animator.SetBool("middleWalk", false);
+        }
+        else if (x < 0)
+        {
+            animator.SetBool("rightWalk", false);
+            animator.SetBool("leftWalk", true);
+            animator.SetBool("middleWalk", false);
+        }
+
         float movexBy = x * speed;
         float moveyBy = y * speed;
         rb.velocity = new Vector2(movexBy, moveyBy);
