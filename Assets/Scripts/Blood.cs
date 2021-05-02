@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Blood : MonoBehaviour
 {
+    public AudioSource cleansound;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,7 @@ public class Blood : MonoBehaviour
        
         if (collision.gameObject.tag == "Player")
         {
+            cleansound.Play();
             gameObject.active = false;
             gameObject.SetActive(false);
             //  gameObject.active = false;
@@ -36,6 +38,7 @@ public class Blood : MonoBehaviour
         Debug.Log("You mopped up the blood");
        
         if (other.tag == "Player") {
+            cleansound.Play();
             // gameObject.active = false;
             //    other.gameObject.SetActive(false);
             gameObject.active = false;

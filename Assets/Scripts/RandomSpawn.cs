@@ -65,8 +65,12 @@ public class RandomSpawn : MonoBehaviour
     }
 
     void SpawnObjectsAtRandom() {
-        Vector3 randomPos = Random.insideUnitCircle * radius; 
-        Instantiate(BloodPrefab,randomPos, Quaternion.identity);
+        // Vector3 randomPos = Random.insideUnitCircle * radius; 
+        // Instantiate(BloodPrefab, randomPos, Quaternion.identity);
+        //xyz
+        var position = new Vector3(Random.Range(-10.0f, 10.0f), Random.Range(0.5f, -5.0f), 0);
+        Instantiate(BloodPrefab, position, Quaternion.identity);
+       
     }
 
     //Draw a circle so we know where the shit is 
