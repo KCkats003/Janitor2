@@ -12,6 +12,10 @@ public class PlayerMovement : MonoBehaviour
     public bool died;
     public int collected;
     Animator animator;
+    public BoxCollider2D Collider1;
+
+    public GameObject shield;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
         died = false;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        shield.SetActive(false);
     }
 
     void Jump()
@@ -33,20 +38,25 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("You mopped up the blood");
-        if (collision.gameObject.tag == "Blood")
-        {
-            //  gameObject.active = false;
+        if (collision.collider == Collider1) {
 
-            collision.gameObject.SetActive(false);
             Debug.Log("You mopped up the blood");
-        }
-        if (collision.gameObject.tag == "Brick")
-        {
+            if (collision.gameObject.tag == "Blood")
+            {
+                //  gameObject.active = false;
 
-            Debug.Log("You hit a brick and died");
-            died = true;
+                collision.gameObject.SetActive(false);
+                Debug.Log("You mopped up the blood");
+            }
+            if (collision.gameObject.tag == "Brick")
+            {
+
+                Debug.Log("You hit a brick and died");
+                died = true;
+            }
+
         }
+
     }
 
     void OnTriggerExit2D(Collider2D collision)
@@ -122,7 +132,10 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(movexBy, moveyBy);
         }
 
-
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            shield.SetActive(true);
+        }
 
     }
 }

@@ -66,6 +66,8 @@
     <Compile Include="Assets\Scripts\RandomSpawn.cs" />
     <Compile Include="Assets\HeroVillianInGameIntro.cs" />
     <Compile Include="Assets\Scripts\IntroInGame.cs" />
+    <Compile Include="Assets\Scripts\FireExplosion.cs" />
+    <Compile Include="Assets\Scripts\Sheild.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
